@@ -1,4 +1,9 @@
 #include "editionService.h"
+#include "7segments/sevenSegments.h"
+
+void editionService::setKey(char key) {
+    this->key = key;
+}
 
 void editionService::setReg(int reg1, int reg2, int reg3, int reg4) {
     reg[0] = reg1;
@@ -53,6 +58,9 @@ int editionService::verifiyKeyboardAndConversion(char key) {
 	}
 }
 
+char editionService::getKey() {
+    return key;
+}
 
 void editionService::debouncerKey() {
     states_debouncer states = q1;
@@ -123,11 +131,32 @@ void editionService::nextState() {
     }
 }
 
+
+
 editionService::doActivies() {
 
     switch (states) {
         case q1:
             break;
         case q2:
+            int lastNumber = verifiyKeyboardAndConversion(key);
+            setReg(0, 0, 0, lastNumber);
+            
+            break;
+        case q3:
+            int lastNumber = verifiyKeyboardAndConversion(key);
+            setReg(0, 0, getRegByPosition(3), lastNumber);
+
+            break;
+        case q4:
+            int lastNumber = verifiyKeyboardAndConversion(key);
+            setReg(0, getRegByPosition(2), getRegByPosition(3), lastNumber);
+
+           break;
+        case q5:
+            int lastNumber = verifiyKeyboardAndConversion(key);
+            setReg(getRegByPosition(1), getRegByPosition(2), getRegByPosition(3), lastNumber); 
+            
+            break;
     }
 }
