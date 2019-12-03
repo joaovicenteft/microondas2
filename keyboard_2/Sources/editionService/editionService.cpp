@@ -1,5 +1,4 @@
 #include "editionService.h"
-#include "7segments/sevenSegments.h"
 
 void editionService::setKey(char key) {
     this->key = key;
@@ -63,30 +62,30 @@ char editionService::getKey() {
 }
 
 void editionService::debouncerKey() {
-    states_debouncer states = q1;
-
-    switch (states) {
+    
+    switch (states_d) {
         case q1:
-            buttonIsPressedKeyFinished = 0;
-            if (buttonIsPressedKey)
+            this->buttonIsPressedKeyFinished = 0;
+            if ((this->buttonIsPressedKey))
                 states = q2;
             else
                 states = q1;
         case q2:
-            buttonIsPressedKeyFinished = 0;
-            if (!buttonIsPressedKey)
+            this->buttonIsPressedKeyFinished = 0;
+            if (!(this->buttonIsPressedKey))
                 states = q3;
             else
                 states = q2;
         case q3:
-            buttonIsPressedKeyFinished = 1;
+            this->buttonIsPressedKeyFinished = 1;
+            states = q1;
     }
 }
 
 
 void editionService::nextState() {
     
-    switch (states) {
+    switch (states_d) {
         case q1:
             if (buttonTurnOn)
                 states = q2;
@@ -141,22 +140,42 @@ editionService::doActivies() {
         case q2:
             int lastNumber = verifiyKeyboardAndConversion(key);
             setReg(0, 0, 0, lastNumber);
-            
+
+            for (int i = 0; i < 4; i++) {
+                sevensegments.turnOnSevenSegments(getRegByPosition(i), i);
+            }            
             break;
         case q3:
             int lastNumber = verifiyKeyboardAndConversion(key);
             setReg(0, 0, getRegByPosition(3), lastNumber);
 
+            for (int i = 0; i < 4; i++) {
+                sevensegments.turnOnSevenSegments(getRegByPosition(i), i);
+            }
             break;
         case q4:
             int lastNumber = verifiyKeyboardAndConversion(key);
             setReg(0, getRegByPosition(2), getRegByPosition(3), lastNumber);
 
+            for (int i = 0; i < 4; i++) {
+                sevensegments.turnOnSevenSegments(getRegByPosition(i), i);
+            }
            break;
         case q5:
             int lastNumber = verifiyKeyboardAndConversion(key);
             setReg(getRegByPosition(1), getRegByPosition(2), getRegByPosition(3), lastNumber); 
             
+            for (int i = 0; i < 4; i++) {
+                sevensegments.turnOnSevenSegments(getRegByPosition(i), i);
+            }
+            break;
+        case q6:
+            int lastNumber = verifiyKeyboardAndConversion(key);
+            if (!lastNumber) {
+                for (int i = 0; i < 4; i++) {
+                    sevensegments.turnOnSevenSegments(0, i);
+                }
+            }
             break;
     }
 }

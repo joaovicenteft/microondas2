@@ -1,9 +1,5 @@
 #include "stdint.h"
-
-typedef enum {
-    stOff = 0,
-    stOn
-} state_t;
+#include "7segments/sevenSegments.h"
 
 typedef enum {q1, q2, q3, q4, q5} states_t;
 
@@ -12,8 +8,11 @@ typedef enum {q1, q2, q3} states_debouncer;
 class editionService {
 
     public:
-        states_t states = q1;
 
+        states_t states = q1;
+        states_debouncer states_d = q1;
+        sevenSegments sevensegments;
+    
     private:
         char key;
         int buttonTurnOn;
@@ -32,7 +31,7 @@ class editionService {
         int getButtonIsPressedKey();
         int getRegByPosition(int position);
         char getKey();
-        
+
         state_t eventBon();
         void nextState();
         void doActivies();
