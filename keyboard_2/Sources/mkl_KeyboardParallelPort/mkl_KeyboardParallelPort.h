@@ -52,7 +52,7 @@ class mkl_KeyboardParallelPort{
 	 /*!
 	   * M�todo que verifica se uma chave foi pressionada.
 	   */
-	bool keyIsPressed();
+	int keyIsPressed();
 
 	 /*!
 	   * M�todo que retorna a chave pressionada.

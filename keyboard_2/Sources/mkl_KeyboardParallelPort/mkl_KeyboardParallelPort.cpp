@@ -203,12 +203,12 @@ void mkl_KeyboardParallelPort::update()
  *
  * 	 @brief 	Verifica se alguma chave foi pressionada ou n�o
  */
-bool mkl_KeyboardParallelPort::keyIsPressed()
+int mkl_KeyboardParallelPort::keyIsPressed()
 {
 	if(getKey() == 16)
-	return false;
+	return 1;
 	else
-	return true;
+	return 0;
 }
 
 /*!
