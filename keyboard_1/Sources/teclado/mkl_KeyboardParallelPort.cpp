@@ -1,40 +1,38 @@
 /*!
- * @copyright   © 2019 Universidade Federal do Amazonas.
+ * @copyright   Â© 2019 Universidade Federal do Amazonas.
  *
- * @brief       Interface da API em C++ da classe mãe mkl_KeyboardParallelPort.
+ * @brief       Interface da API em C++ da classe mÃ£e mkl_KeyboardParallelPort.
  *
  * @file        mkl_KeyboardParallelPort.h
  * @version     1.0
- * @date        04 março 2019
+ * @date        04 marÃ§o 2019
  *
  * @section     HARDWARES & SOFTWARES
  *              +board        FRDM-KL25Z da NXP.
  *              +processor    MKL25Z128VLK4 - ARM Cortex-M0+
- *              +compiler     Kinetis® Design Studio IDE
+ *              +compiler     KinetisÂ® Design Studio IDE
  *              +manual       L25P80M48SF0RM, Rev.3, September 2012
- *              +revisions    Versão (data): Descrição breve.
- *                             ++ 1.0 (04 Março 2019): Versão inicial.
+ *              +revisions    VersÃ£o (data): DescriÃ§Ã£o breve.
+ *                             ++ 1.0 (04 MarÃ§o 2019): VersÃ£o inicial.
  *
  * @section     AUTHORS & DEVELOPERS
  *              +institution  Universidade Federal do Amazonas
- *              +courses      Engenharia da Computação / Engenharia Elétrica
+ *              +courses      Engenharia da ComputaÃ§Ã£o / Engenharia ElÃ©trica
  *              +teacher      Miguel Grimm <miguelgrimm@gmail.com>
- *              +student      Versão inicial:
- *                             ++ Daniel Modesto de Souza <daniel.modesto.dmds@gmail.com>
  *
  *
  * @section     LICENSE
  *
  *              GNU General Public License (GNU GPL).
  *
- *              Este programa é um software livre; Você pode redistribuí-lo
- *              e/ou modificá-lo de acordo com os termos do "GNU General Public
+ *              Este programa Ã© um software livre; VocÃª pode redistribuÃ­-lo
+ *              e/ou modificÃ¡-lo de acordo com os termos do "GNU General Public
  *              License" como publicado pela Free Software Foundation; Seja a
- *              versão 3 da licença, ou qualquer versão posterior.
+ *              versÃ£o 3 da licenÃ§a, ou qualquer versÃ£o posterior.
  *
- *              Este programa é distribuído na esperança de que seja útil,
- *              mas SEM QUALQUER GARANTIA; Sem a garantia implícita de
- *              COMERCIALIZAÇÃO OU USO PARA UM DETERMINADO PROPÓSITO.
+ *              Este programa Ã© distribuÃ­do na esperanÃ§a de que seja Ãºtil,
+ *              mas SEM QUALQUER GARANTIA; Sem a garantia implÃ­cita de
+ *              COMERCIALIZAÃ‡ÃƒO OU USO PARA UM DETERMINADO PROPÃ“SITO.
  *              Veja o site da "GNU General Public License" para mais detalhes.
  *
  * @htmlonly    http://www.gnu.org/copyleft/gpl.html
@@ -45,7 +43,7 @@
 /*!
  *   @fn		mkl_KeyboardParallelPort
  *
- * 	 @brief		Construtor padrão da classe.O construtor padrão da classe configura as portas GPIO, define estas como entrada e ativa resistores de pull-up
+ * 	 @brief		Construtor padrÃ£o da classe.O construtor padrÃ£o da classe configura as portas GPIO, define estas como entrada e ativa resistores de pull-up
  *
  *	 @param[in] pinL0-pinL3 - Portas GPIO a serem utilizadas no teclado como linhas.
  *	 			pinC0-pinC3 - Portas GPIO a serem utilizadas no teclado como colunas.
@@ -200,7 +198,7 @@ void mkl_KeyboardParallelPort::update()
 /*!
  *   @fn		keyIsPressed
  *
- * 	 @brief 	Verifica se alguma chave foi pressionada ou não
+ * 	 @brief 	Verifica se alguma chave foi pressionada ou nÃ£o
  */
 bool mkl_KeyboardParallelPort::keyIsPressed()
 {
@@ -213,7 +211,7 @@ bool mkl_KeyboardParallelPort::keyIsPressed()
 /*!
  *   @fn		getKey
  *
- * 	 @brief 	Retorna a chave pressionada no último update
+ * 	 @brief 	Retorna a chave pressionada no Ãºltimo update
  */
 char mkl_KeyboardParallelPort::getKey(){return key;}
 
